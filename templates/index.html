@@ -5,52 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Title}}</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            background-image: url('/static/jail.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Go-Jenkins CI Pipeline Test 4</h1>
+        <h1>New York Police Station</h1>
     </header>
-    <br>
-    <nav>
-        <ul class="nav-buttons">
-            <li><a class="nav-button" href="/">Home</a></li>
-            <li><a class="nav-button" href="/about">About</a></li>
-            <li><a class="nav-button" href="/contact">Contact</a></li>
-        </ul>
-    </nav>
     <main>
         <section class="content">
-            <h2>Test Javascript Funtion</h2>
+            <h2>Register New Criminal</h2><br>
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <br><input type="file" name="file" accept="image/*" >
+                <br><button class="nav-button" type="submit">Upload Image</button>
+            </form>
             <button class="nav-button" onclick="changeHeaderColor()">Change Header Color</button>
         </section>
         <section class="content">
-            <h2>Upload Image</h2>
-            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" accept="image/*" >
-                <button class="nav-button" type="submit">Upload Image</button>
-            </form>
-            <section>{{range .Images}}
+            <h2>All Criminals</h2><br>
+                {{range .Images}}
                 <img src="data:image/jpeg;base64,{{.}}" alt="{{.}}" width="200" height="150"/>
                 {{end}}
-            </section>
         </section>
-        <section class="content">
-            <h2>Contact Us</h2>
-            <form id="contactForm" action="/contact" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea><br>
-                <button class="btn" type="submit">Submit</button>
-            </form>
-        </section>
-        <img src="../database/111before.png" />
     </main>
-    <footer>
-        <p>&copy; github/shnartho </p>
-    </footer>
     <script src="/static/script.js"></script>
 </body>
+<footer>
+    <p>&copy; github/shnartho </p>
+</footer>
 </html>

@@ -6,6 +6,17 @@ body, h1, h2, p {
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Apply some basic styling to the body */
 body {
     font-family: Arial, sans-serif;
@@ -43,7 +54,7 @@ nav ul li a {
 
 /* Style the main content section */
 main {
-    padding: 20px;
+    padding: 0px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -98,8 +109,8 @@ footer {
 
 .nav-buttons {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 10px;
+    padding: 10px;
     text-align: center;
 }
 

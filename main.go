@@ -19,7 +19,7 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.HandleFunc("/upload", uploadHandler)
 
-	port := ":8091"
+	port := ":8099"
 	fmt.Printf("Server is listening to port %s...", port)
 	http.ListenAndServe(port, nil)
 }
@@ -41,7 +41,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		Title  string
 		Images []string
 	}{
-		Title:  "Go-Jenkins",
+		Title:  "Go-Jenkins-ArgoCD",
 		Images: images,
 	}
 
