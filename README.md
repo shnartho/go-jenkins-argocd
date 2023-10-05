@@ -38,3 +38,6 @@
 
 🎯 In summary, Updating code and pushing it to git repository will trigger the webhook, jenkins will pull the updated code repo in the project workspace and execute necessary shell comands for port and running the website.
 
+### 🖥️ Error Hanlidng
+1. Css and static files were not being served. Solution: Make sure to get and set working directory is the executables directory and then use relative path in your code. (os.Chdir(exeDir), templates/index.html, static/styles.css etc)
+

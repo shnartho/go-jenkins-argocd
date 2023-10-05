@@ -15,11 +15,25 @@ var (
 )
 
 func main() {
+	exePath, err := os.Executable()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	exeDir := filepath.Dir(exePath)
+
+	// Set the working directory to the executable's directory
+	err = os.Chdir(exeDir)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
 	http.HandleFunc("/", handler)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.HandleFunc("/upload", uploadHandler)
 
-	port := ":8099"
+	port := ":8081"
 	fmt.Printf("Server is listening to port %s...", port)
 	http.ListenAndServe(port, nil)
 }
