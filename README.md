@@ -40,4 +40,5 @@
 
 ### 🖥️ Error Hanlidng
 1. Css and static files were not being served. Solution: Make sure to get and set working directory is the executables directory and then use relative path in your code. (os.Chdir(exeDir), templates/index.html, static/styles.css etc)
+2. Jenkins issues: sudo usermod -aG docker $username, for example "sudo usermod -aG docker jenkins" and "newgrp docker". And reboot the server. so jenkins will be able to access docker comands. A
 
