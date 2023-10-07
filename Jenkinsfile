@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Update Deployment File') {
             steps {
-                //sh 'rm -rf repository'
+                sh 'rm -rf repository'
                 withCredentials([usernamePassword(credentialsId: 'git_credentials',             usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
                     sh "git clone $GIT_REPO_URL repository"
                 }
