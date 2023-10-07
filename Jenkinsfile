@@ -29,7 +29,6 @@ pipeline {
             steps {
                 //sh 'rm -rf repository'
                 withCredentials([usernamePassword(credentialsId: 'git_credentials',             usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                    def gitUrlWithCredentials = "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/shnartho/go-jenkins-argocd-deployment.git"
                     sh "git clone $GIT_REPO_URL repository"
                 }
                 dir('repository') {
@@ -41,7 +40,8 @@ pipeline {
                     sh 'git config user.name "shnartho"'
                     sh 'git add deployment.yaml'
                     sh 'git commit -m "Update deployment.yaml"'
-                    sh 'git push --set-upstream origin main'
+                    //sh 'git push --set-upstream origin main'
+                    sh 'https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/shnartho/go-jenkins-argocd-deployment.git HEAD:main'
                 }
             }
         }
