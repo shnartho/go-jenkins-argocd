@@ -23,7 +23,7 @@ pipeline {
                     sh 'git commit -m "Update deployment.yaml"'
                     //sh 'git push --set-upstream origin main'
                     withCredentials([usernamePassword(credentialsId: 'git_credentials',             usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                        sh 'https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/shnartho/go-jenkins-argocd-deployment.git'
+                        sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/shnartho/go-jenkins-argocd-deployment.git'
                     }
     
                 }
