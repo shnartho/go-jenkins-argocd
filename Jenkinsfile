@@ -21,7 +21,7 @@ pipeline {
 
         stage('Push image') {
             steps {
-                sh 'docker push shnartho/go-jenkins-argocd:1$BUILD_NUMBER'
+                sh 'docker push shnartho/go-jenkins-argocd:$BUILD_NUMBER'
             }
         }
 
@@ -33,7 +33,7 @@ pipeline {
                 }
                 dir('repository') {
                     // Update your deployment file with the new image tag
-                    sh "sed -i 's|image: shnartho/go-jenkins-argocd:[0-9]*|image: shnartho/go-jenkins-argocd:1$BUILD_NUMBER|' deployment.yaml"
+                    sh "sed -i 's|image: shnartho/go-jenkins-argocd:[0-9]*|image: shnartho/go-jenkins-argocd:$BUILD_NUMBER|' deployment.yaml"
                     
                     // Commit and push the changes
                     sh 'git config user.email "shnartho@gmail.com"'
