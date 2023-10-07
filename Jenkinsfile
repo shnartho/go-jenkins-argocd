@@ -36,7 +36,7 @@ pipeline {
                     
                     // Commit and push the changes
                     sh 'git config user.email "shnartho@gmail.com"'
-                    sh 'git config user.name "Nayem"'
+                    sh 'git config user.name "shnartho"'
                     sh 'git add deployment.yaml'
                     sh 'git commit -m "Update deployment.yaml"'
                     sh 'git push --set-upstream origin main'
