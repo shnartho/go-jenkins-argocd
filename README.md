@@ -21,13 +21,25 @@
 ![](./images/dh1.png)
 ![](./images/dh2.png)
 
-#### 🟢 The deployment.yaml file in deployment repository also got updated by jenkins.
+#### 🟢 The deployment.yaml file in "go-jenkins-argocd-deployment" repository also got updated by jenkins.
 ![](./images/d1.png)
 ![](./images/d2.png)
 ![](./images/d3.png)
 ![](./images/jserver.png)
 
-#### 🟢 As soon as deployment.yaml file got updated, argoCD will sync, pull image from dockerhub and deploy new updated container based on the image build number. 
+#### 🟢 The application is deployed on argoCD namespace in kubernetes. This is the previous version 1.0.0 which is running.
+![](./images/acd/app-service-port.png)
+![](./images/acd/v1d.png)
+![](./images/acd/v1acd.png)
+![](./images/acd/v1.png)
+
+#### 🟢 As soon as deployment.yaml file got updated with new image tag 14, argoCD will sync, pull image from dockerhub and deploy new updated container based on the image build number 14.Therefore, version 3.1.2 is now being servered by argoCD and service file is doing the load balancing and inside each container nginx is doing reverse proxy.
+![](./images/acd/v3d.png)
+![](./images/acd/outofsync.png)
+![](./images/acd/v3acd.png)
+![](./images/acd/v3.png)
+![](./images/acd/v3logs.png)
+![](./images/acd/v3logss.png)
 
 #### 🟢 Therefore, we have achieved complete automated CI/CD software delivery. 
 
